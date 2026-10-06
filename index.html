@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carlos André — Sites, Sistemas e Tráfego Pago</title>
+<title>Carlos André | Sites, Sistemas e Tráfego Pago</title>
 <meta name="description" content="Desenvolvedor web: sites, landing pages, sistemas sob medida, Google Ads e automações para fazer seu negócio vender mais.">
 <meta name="theme-color" content="#050505">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 48 48%27%3E%3Crect width=%2748%27 height=%2748%27 rx=%2710%27 fill=%27%23080808%27/%3E%3Cpath d=%27M15 16l-7 8 7 8M33 16l7 8-7 8M27 10l-6 28%27 fill=%27none%27 stroke=%27%23CBFF15%27 stroke-width=%274%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
@@ -277,23 +277,19 @@ section{position:relative;padding:120px 0}
 .win .bar{height:24px;display:flex;align-items:center;gap:5px;padding:0 10px;background:rgba(0,0,0,.25)}
 .win .bar i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4)}
 .w-img .win{background:#0b1a33}
+.works .work:first-child{grid-column:1/-1}
+.works .work:first-child .work-shot{aspect-ratio:21/9}
+@media(max-width:800px){.works .work:first-child .work-shot{aspect-ratio:16/10}}
+.w-img .win{position:relative}
+.vid-hint{position:absolute;right:14px;bottom:14px;display:flex;align-items:center;gap:6px;padding:7px 12px;border-radius:40px;background:rgba(5,5,5,.75);border:1px solid rgba(203,255,21,.4);color:var(--primary);font-size:11px;font-weight:600;letter-spacing:.3px;backdrop-filter:blur(6px);pointer-events:none;transition:opacity .3s}
+.work.playing .vid-hint{opacity:0}
+@media (hover:none){.vid-hint{font-size:0;gap:0;padding:8px}}
+.w-img .win video{width:100%;height:calc(100% - 24px);object-fit:cover;object-position:top center;display:block}
 .w-img .win img{width:100%;height:calc(100% - 24px);object-fit:cover;object-position:top center}
 .win .pg{padding:22px;height:calc(100% - 24px);display:flex;flex-direction:column;justify-content:center;gap:10px}
 .win .pg .t{font-size:clamp(18px,2.4vw,28px);line-height:1.1;font-weight:800}
 .win .pg .s{font-size:12px;opacity:.75;max-width:70%}
 .win .pg .b{display:inline-block;align-self:flex-start;padding:7px 14px;border-radius:40px;font-size:11px;font-weight:700;margin-top:4px}
-.w-rs .win{background:linear-gradient(135deg,#fdf4ef,#f5e1d8);color:#3a2210}
-.w-rs .t{font-family:Georgia,serif;font-weight:700!important}
-.w-rs .b{background:#c4864e;color:#fff}
-.w-sm .win{background:linear-gradient(135deg,#FFFBF3,#ffe9a8);color:#2E1A12}
-.w-sm .t{color:#C8102E}
-.w-sm .b{background:#25d366;color:#fff}
-.w-adv .win{background:linear-gradient(135deg,#0e1726,#1c2a44);color:#f4efe4}
-.w-adv .t{font-family:Georgia,serif;color:#d8b779}
-.w-adv .b{background:#d8b779;color:#0e1726}
-.w-od .win{background:linear-gradient(135deg,#eaf7fb,#cdeef7);color:#0b3b4f}
-.w-od .t{color:#0a7ea4}
-.w-od .b{background:#0a7ea4;color:#fff}
 .work-info{padding:24px 26px 28px;border-top:1px solid var(--line)}
 .work-info .cat{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--primary);font-weight:600}
 .work-info h4{font-size:20px;margin:6px 0 8px}
@@ -307,12 +303,14 @@ section{position:relative;padding:120px 0}
 .about-frame{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:#0b0b0b}
 .about-frame img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.02);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .about-photo:hover .about-frame img{transform:scale(1.07)}
-.about-tag{position:absolute;left:-22px;bottom:40px;padding:14px 18px 14px 34px;border-radius:12px;background:rgba(18,18,18,.92);border:1px solid var(--line-2);backdrop-filter:blur(10px);font-weight:700;font-size:15px;line-height:1.3;box-shadow:0 20px 50px -15px rgba(0,0,0,.7)}
-.about-tag small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
-.dot-on{position:absolute;left:15px;top:20px;width:9px;height:9px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,.18)}
 .eyebrow-s{font-size:14px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--primary);margin-bottom:16px}
 .about-text h2{font-size:clamp(30px,3.8vw,46px);line-height:1.12;font-weight:800;letter-spacing:-1px;margin-bottom:22px}
 .about-text p{color:var(--muted);font-size:16.5px;margin-bottom:16px;max-width:560px}
+.about-text p strong{color:var(--text)}
+.about-stats{display:flex;gap:14px;margin:26px 0 4px}
+.about-stats div{flex:1;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.about-stats b{display:block;font-size:28px;font-weight:800;color:var(--primary);line-height:1}
+.about-stats span{display:block;margin-top:8px;font-size:12.5px;color:var(--muted);line-height:1.4}
 .about-list{list-style:none;margin:26px 0 34px;display:grid;gap:14px}
 .about-list li{display:flex;align-items:center;gap:12px;font-size:15.5px;font-weight:500}
 .about-list svg{flex-shrink:0;width:26px;height:26px;padding:5px;border-radius:50%;background:rgba(203,255,21,.15);color:#CBFF15}
@@ -407,6 +405,9 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
   .rv{opacity:1;transform:none}
 }
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Carlos André | Desenvolvedor Web","description":"Criação de sites, landing pages, sistemas sob medida, tráfego pago no Google e Instagram e automações.","telephone":"+55 38 99258-4237","areaServed":"BR","founder":{"@type":"Person","name":"Carlos André","jobTitle":"Desenvolvedor Web"},"knowsAbout":["Desenvolvimento de sites","Landing pages","Google Ads","Sistemas web","Automação"]}
+</script>
 </head>
 <body class="loading">
 
@@ -458,7 +459,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
         <span class="muted">que fazem seu negócio</span><br>
         vender todo dia.
       </h1>
-      <p class="lead rv d1">Sites, anúncios no Google e sistemas sob medida — tudo pensado para trazer clientes direto pro seu WhatsApp.</p>
+      <p class="lead rv d1">Sites, anúncios no Google e sistemas sob medida. Tudo pensado para trazer clientes direto pro seu WhatsApp.</p>
       <div class="hero-ctas rv d2">
         <a href="#" class="btn btn-primary" data-wa="Olá Carlos! Quero tirar meu projeto do papel.">Quero meu projeto
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
@@ -551,13 +552,13 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
   <div class="container about">
     <div class="about-photo rv">
       <div class="about-frame"><img src="assets/carlos-sobre.jpg" alt="Carlos André, desenvolvedor web" loading="lazy"></div>
-      <div class="about-tag"><span class="dot-on"></span>Carlos André<small>Desenvolvedor web</small></div>
     </div>
     <div class="about-text">
       <h3 class="eyebrow-s rv">Quem sou eu</h3>
       <h2 class="rv d1">Prazer, eu sou o <span class="grad-text">Carlos André.</span></h2>
-      <p class="rv d2">Sou desenvolvedor web e ajudo negócios a aparecerem na internet e receberem mais clientes pelo WhatsApp.</p>
-      <p class="rv d2">Um site bonito sozinho não basta: ele precisa ser encontrado e transformar visita em conversa. Por isso, além de desenvolver o site, eu também cuido dos anúncios no Google e no Instagram e dos sistemas que o seu negócio precisar.</p>
+      <p class="rv d2">Tenho 21 anos e sempre fui apaixonado por tecnologia. Comecei a trabalhar com internet aos 15 e, de lá pra cá, nunca mais parei. Hoje sou formado em <strong>Análise e Desenvolvimento de Sistemas</strong>.</p>
+      <p class="rv d2">Uso essa experiência para ajudar negócios a aparecerem na internet e receberem mais clientes pelo WhatsApp. Eu crio o site, cuido dos anúncios no Google e no Instagram e desenvolvo os sistemas que o seu negócio precisar.</p>
+      <div class="about-stats rv d3"><div><b>6+</b><span>anos trabalhando<br>com internet</span></div><div><b>ADS</b><span>formado em Análise e<br>Desenv. de Sistemas</span></div></div>
       <ul class="about-list rv d3">
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Você fala direto comigo, do começo ao fim</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Cada projeto feito do zero, sem template pronto</li>
@@ -579,28 +580,24 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
     </div>
     <div class="works">
       <article class="work w-img rv tilt">
-        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="assets/portfolio-1.jpg" alt="Site da Maryane Cavalcanti, neuropsicóloga" loading="lazy"></div></div>
-        <div class="work-info"><span class="cat">Site Institucional</span><h4>Maryane Cavalcanti — Neuropsicologia</h4><p>Site para neuropsicóloga e terapeuta cognitivo-comportamental, com áreas de atuação e contato.</p></div>
+        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-maryane.mp4" poster="assets/portfolio-1.jpg" muted loop playsinline preload="none" aria-label="Site da Maryane Cavalcanti, neuropsicóloga"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
+        <div class="work-info"><span class="cat">Site Institucional</span><h4>Maryane Cavalcanti</h4><p>Site para neuropsicóloga e terapeuta cognitivo-comportamental, com áreas de atuação e contato.</p></div>
       </article>
-      <article class="work w-rs rv tilt">
-        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div>
-          <div class="pg"><div class="t">Rose Santana<br>Beauty</div><div class="s">Studio de sobrancelhas — design, brow lamination e henna.</div><span class="b">Agendar pelo WhatsApp</span></div></div></div>
-        <div class="work-info"><span class="cat">Landing Page</span><h4>RS Beauty — Studio de Sobrancelhas</h4><p>Página elegante com agendamento direto pelo WhatsApp para um studio de beleza em Espinosa-MG.</p></div>
+      <article class="work w-img rv d1 tilt">
+        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-mariosouza.mp4" poster="assets/port-mariosouza.webp" muted loop playsinline preload="none" aria-label="Site do escritório Mario Souza Advogados"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
+        <div class="work-info"><span class="cat">Site Institucional</span><h4>Mario Souza Advogados</h4><p>Site para escritório de advocacia empresarial, com vídeo de fundo, área do cliente e contato direto.</p></div>
       </article>
-      <article class="work w-sm rv d1 tilt">
-        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div>
-          <div class="pg"><div class="t">Revenda os biscoitos<br>Sabor de Minas</div><div class="s">Biscoitos de polvilho e amanteigados feitos em forno a lenha.</div><span class="b">Quero revender</span></div></div></div>
-        <div class="work-info"><span class="cat">Landing B2B + Google Ads</span><h4>Sabor de Minas — Revenda</h4><p>Landing page para captar revendedores via Google Ads, com contato direto no WhatsApp comercial.</p></div>
+      <article class="work w-img rv tilt">
+        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-vivence.mp4" poster="assets/port-vivence.webp" muted loop playsinline preload="none" aria-label="Loja virtual da Vivence Jóias"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
+        <div class="work-info"><span class="cat">Loja Virtual</span><h4>Vivence Jóias</h4><p>E-commerce de joias em prata 925 e ouro 18K, com coleções, carrinho e atendimento pelo WhatsApp.</p></div>
       </article>
-      <article class="work w-adv rv tilt">
-        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div>
-          <div class="pg"><div class="t">Advocacia</div><div class="s">Atendimento jurídico com credibilidade e proximidade.</div><span class="b">Fale com um advogado</span></div></div></div>
-        <div class="work-info"><span class="cat">Site Institucional</span><h4>Escritório de Advocacia</h4><p>Site sóbrio e profissional que transmite confiança e facilita o primeiro contato.</p></div>
+      <article class="work w-img rv d1 tilt">
+        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-logi.mp4" poster="assets/port-logi.webp" muted loop playsinline preload="none" aria-label="Landing page do teclado MX Keys S"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
+        <div class="work-info"><span class="cat">Landing de Produto</span><h4>MX Keys S</h4><p>Landing page de produto com visual limpo, foco no item e chamada direta para compra.</p></div>
       </article>
-      <article class="work w-od rv d1 tilt">
-        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div>
-          <div class="pg"><div class="t">Espaço Odonto</div><div class="s">Cuidado completo com o seu sorriso.</div><span class="b">Agendar avaliação</span></div></div></div>
-        <div class="work-info"><span class="cat">Site Institucional</span><h4>Espaço Odonto</h4><p>Presença digital para clínica odontológica com foco em agendamento de avaliações.</p></div>
+      <article class="work w-img rv tilt">
+        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-fruity.mp4" poster="assets/port-fruity.webp" muted loop playsinline preload="none" aria-label="Landing page da bebida Fruity Green Pear"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
+        <div class="work-info"><span class="cat">Landing de Produto</span><h4>Fruity</h4><p>Página de produto colorida e divertida, com elementos flutuantes e botão de compra em destaque.</p></div>
       </article>
     </div>
   </div>
@@ -615,7 +612,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
     </div>
     <div class="why">
       <div class="card rv"><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>Código próprio</h4><p>Nada de template engessado. Seu site é único, leve e seu de verdade.</p></div>
-      <div class="card rv d1"><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Rápido de verdade</h4><p>Páginas otimizadas que carregam rápido no celular — o Google e o cliente agradecem.</p></div>
+      <div class="card rv d1"><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Rápido de verdade</h4><p>Páginas otimizadas que carregam rápido no celular. O Google e o cliente agradecem.</p></div>
       <div class="card rv d2"><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>Foco em resultado</h4><p>Cada botão, texto e anúncio pensado para gerar contato e venda.</p></div>
       <div class="card rv"><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>Mobile first</h4><p>Pensado primeiro para o celular, onde está a maioria dos seus clientes.</p></div>
       <div class="card rv d1"><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg>Atendimento direto</h4><p>Você fala comigo, sem intermediários. Comunicação clara do início ao fim.</p></div>
@@ -633,10 +630,10 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
     </div>
     <div class="faq" id="faqList">
       <div class="qa rv"><button>Quanto tempo leva para meu site ficar pronto?<span class="plus"></span></button><div class="ans"><div><p>Depende do tamanho do projeto. Uma landing page costuma ser bem mais rápida que um sistema completo. Na nossa conversa eu te passo um prazo claro antes de começar.</p></div></div></div>
-      <div class="qa rv"><button>Eu preciso entender de tecnologia?<span class="plus"></span></button><div class="ans"><div><p>Não. Eu cuido de toda a parte técnica — domínio, hospedagem, configuração e publicação. Você só precisa me contar sobre o seu negócio.</p></div></div></div>
-      <div class="qa rv"><button>O valor do anúncio já está incluso?<span class="plus"></span></button><div class="ans"><div><p>Não. A verba dos anúncios é paga direto para o Google ou Meta, na sua conta. Eu cobro pela criação, configuração e gestão das campanhas — assim você tem total controle do investimento.</p></div></div></div>
+      <div class="qa rv"><button>Eu preciso entender de tecnologia?<span class="plus"></span></button><div class="ans"><div><p>Não. Eu cuido de toda a parte técnica: domínio, hospedagem, configuração e publicação. Você só precisa me contar sobre o seu negócio.</p></div></div></div>
+      <div class="qa rv"><button>O valor do anúncio já está incluso?<span class="plus"></span></button><div class="ans"><div><p>Não. A verba dos anúncios é paga direto para o Google ou Meta, na sua conta. Eu cobro pela criação, configuração e gestão das campanhas, e assim você tem total controle do investimento.</p></div></div></div>
       <div class="qa rv"><button>Meu site vai funcionar bem no celular?<span class="plus"></span></button><div class="ans"><div><p>Sim. Todos os projetos são responsivos e pensados primeiro para o celular, que é por onde a maioria dos clientes chega.</p></div></div></div>
-      <div class="qa rv"><button>Você faz sistemas personalizados?<span class="plus"></span></button><div class="ans"><div><p>Sim. Painéis administrativos, sistemas de agendamento, cadastros, controle de pedidos e automações — tudo desenvolvido de acordo com a rotina da sua empresa.</p></div></div></div>
+      <div class="qa rv"><button>Você faz sistemas personalizados?<span class="plus"></span></button><div class="ans"><div><p>Sim. Painéis administrativos, sistemas de agendamento, cadastros, controle de pedidos e automações, tudo desenvolvido de acordo com a rotina da sua empresa.</p></div></div></div>
       <div class="qa rv"><button>E depois que o site estiver no ar?<span class="plus"></span></button><div class="ans"><div><p>Ofereço planos de manutenção para atualizações, melhorias e suporte, para que seu site continue rápido, seguro e atualizado.</p></div></div></div>
     </div>
   </div>
@@ -668,7 +665,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
       </nav>
     </div>
     <div class="copy">
-      <span>© <span id="year"></span> Carlos André — Sites, Sistemas e Tráfego Pago.</span>
+      <span>© <span id="year"></span> Carlos André. Todos os direitos reservados.</span>
       <span><code>&lt;/&gt;</code> feito à mão, linha por linha.</span>
     </div>
   </div>
@@ -680,8 +677,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
 
 <script>
 /* ================== CONFIG ================== */
-// TROQUE pelo seu número com DDI + DDD, só números. Ex: 5538999999999
-const WHATSAPP = '5500000000000';
+const WHATSAPP = '5538992584237';
 
 const waLink = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 document.querySelectorAll('[data-wa]').forEach(a=>{
@@ -857,6 +853,14 @@ if (!isTouch){
   addEventListener('mousemove', e=>{ g.style.left=e.clientX+'px'; g.style.top=e.clientY+'px'; }, {passive:true});
 }
 
+</script>
+<script>
+/* vídeos do portfólio: tocam ao passar o mouse; no celular, só o card mais visível toca */
+(()=>{const vs=[...document.querySelectorAll(".work-vid")];if(!vs.length)return;
+const play=v=>{vs.forEach(o=>{if(o!==v)stop(o)});v.preload="auto";v.play().catch(()=>{});v.closest(".work").classList.add("playing")};
+const stop=v=>{v.pause();v.closest(".work").classList.remove("playing")};
+if(matchMedia("(hover:hover)").matches){vs.forEach(v=>{const c=v.closest(".work");c.addEventListener("mouseenter",()=>play(v));c.addEventListener("mouseleave",()=>stop(v))})}
+else if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.intersectionRatio>=.8)play(e.target);else stop(e.target)}),{threshold:[0,.8]});vs.forEach(v=>io.observe(v))}})();
 </script>
 </body>
 </html>
