@@ -430,7 +430,8 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
 .cta-box{background:#CBFF15;border-color:#CBFF15;color:#0d1510}
 .cta-box .grid-bg{background-image:linear-gradient(rgba(0,0,0,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.07) 1px,transparent 1px)}
 .cta-box p{color:rgba(13,21,16,.75)}
-.cta-box .grad-text{background:none;-webkit-text-fill-color:#0d1510;color:#0d1510;text-decoration:underline;text-decoration-thickness:6px;text-underline-offset:10px}
+.cta-box .grad-text{background:#0d1510;-webkit-text-fill-color:#CBFF15;color:#CBFF15;padding:0 .18em;border-radius:.14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.cta-box h2{line-height:1.18}
 .cta-box .btn-primary{background:#0d1510;color:#CBFF15;box-shadow:0 14px 40px -12px rgba(0,0,0,.6)}
 .cta-box .btn-primary::before{background:#000}
 /* serviços no claro */
@@ -467,6 +468,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
 
 /* ajustes do celular */
 @media (max-width:640px){
+  .foot-links{flex-wrap:wrap;gap:12px 22px}
   .hero h1{font-size:min(7.6vw,32px);letter-spacing:-1px}
   .sec-light .svc-head{padding-left:16px;padding-right:12px}
   .sec-light .svc-body>div{padding-left:52px;padding-right:16px}
@@ -478,6 +480,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
   .about-stats div{padding:14px}
   .about-stats span{font-size:12px}
 }
+@media (max-width:360px){.btn-xl{padding:16px 18px;font-size:13px;gap:8px}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","url":"https://carlos-andre-dev.vercel.app/","image":"https://carlos-andre-dev.vercel.app/assets/og-capa2.jpg","name":"Carlos André | Desenvolvedor Web","description":"Criação de sites, landing pages, sistemas sob medida, tráfego pago no Google e Instagram e automações.","telephone":"+55 38 99258-4237","areaServed":"BR","founder":{"@type":"Person","name":"Carlos André","jobTitle":"Desenvolvedor Web"},"knowsAbout":["Desenvolvimento de sites","Landing pages","Google Ads","Sistemas web","Automação"]}
@@ -718,7 +721,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
   <div class="container">
     <div class="cta-box rv">
       <div class="grid-bg"></div>
-      <h2>Bora colocar seu negócio <span class="grad-text">no próximo nível?</span></h2>
+      <h2>Bora colocar seu negócio no <span class="grad-text" style="white-space:nowrap">próximo nível?</span></h2>
       <p>Me chama no WhatsApp, me conta sua ideia e eu te mostro o caminho mais rápido para ela virar resultado.</p>
       <div class="magnetic" id="magnetic">
         <a href="#" class="btn btn-primary btn-xl" data-wa="Olá Carlos! Quero colocar meu negócio no próximo nível.">Chamar no WhatsApp
