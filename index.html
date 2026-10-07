@@ -464,6 +464,20 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
 .sec-light .svc-item.on{background:#fff;border-color:var(--line);box-shadow:0 12px 30px -20px rgba(13,21,16,.35),inset 3px 0 0 #9bd400}
 .sec-light .svc-item.on .svc-t{color:#0d1510}
 @media (min-width:981px){.sec-light .svc-head{padding-top:24px;padding-bottom:24px}}
+
+/* ajustes do celular */
+@media (max-width:640px){
+  .hero h1{font-size:min(7.6vw,32px);letter-spacing:-1px}
+  .sec-light .svc-head{padding-left:16px;padding-right:12px}
+  .sec-light .svc-body>div{padding-left:52px;padding-right:16px}
+  .btn-xl{padding:18px 24px;font-size:14px;white-space:nowrap}
+  .wa-float{width:52px;height:52px;right:14px;bottom:14px}
+  .wa-float svg{width:26px;height:26px}
+  footer{padding-bottom:90px}
+  .about-stats{gap:10px}
+  .about-stats div{padding:14px}
+  .about-stats span{font-size:12px}
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","url":"https://carlos-andre-dev.vercel.app/","image":"https://carlos-andre-dev.vercel.app/assets/og-capa2.jpg","name":"Carlos André | Desenvolvedor Web","description":"Criação de sites, landing pages, sistemas sob medida, tráfego pago no Google e Instagram e automações.","telephone":"+55 38 99258-4237","areaServed":"BR","founder":{"@type":"Person","name":"Carlos André","jobTitle":"Desenvolvedor Web"},"knowsAbout":["Desenvolvimento de sites","Landing pages","Google Ads","Sistemas web","Automação"]}
