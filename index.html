@@ -26,7 +26,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0a110d;
@@ -49,22 +49,11 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',system-ui,sans-serif;background:var(--bg);color:#fff;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
-body.loading{overflow:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 ::selection{background:var(--primary);color:#000}
 .container{width:min(1200px,100% - 32px);margin-inline:auto}
-
-/* ---------- PRELOADER ---------- */
-#loader{position:fixed;inset:0;z-index:999;background:var(--bg);display:grid;place-items:center;transition:opacity .6s ease,visibility .6s}
-#loader.done{opacity:0;visibility:hidden}
-.loader-box{font-family:var(--mono);font-size:14px;color:var(--muted);width:min(420px,88vw)}
-.loader-box .ln{white-space:pre;min-height:22px}
-.loader-box .ok{color:#34d399}
-.loader-box .pr{color:var(--primary)}
-.loader-bar{height:3px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:18px;overflow:hidden}
-.loader-bar i{display:block;height:100%;width:0;background:var(--grad);transition:width .25s}
 
 /* ---------- BACKGROUND ---------- */
 .glow-cursor{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(203,255,21,.13),transparent 60%);transform:translate(-50%,-50%);left:-999px;top:-999px;transition:opacity .3s}
@@ -75,7 +64,7 @@ main,header,footer{position:relative;z-index:2}
 header{position:sticky;top:0;z-index:50;transition:background .3s,border-color .3s,backdrop-filter .3s;border-bottom:1px solid transparent}
 header.scrolled{background:rgba(var(--bg-rgb),.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:78px;gap:24px}
-.logo{display:flex;align-items:center;gap:9px;--lime:#CBFF15}
+.logo{display:flex;align-items:center;gap:9px;min-height:44px;--lime:#CBFF15}
 .logo-icon{width:30px;height:25px;flex-shrink:0;color:var(--lime);filter:drop-shadow(0 0 10px rgba(203,255,21,.5));transition:transform .3s}
 .logo:hover .logo-icon{transform:scale(1.06)}
 .logo-text{line-height:1;font-family:'Montserrat',system-ui,sans-serif}
@@ -91,12 +80,12 @@ header.scrolled{background:rgba(var(--bg-rgb),.94);backdrop-filter:blur(14px);-w
 .nav-links a:hover::after{width:100%}
 .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid var(--primary-2);border-radius:6px;color:#CBFF15;background:rgba(203,255,21,.06);font-size:14px;font-weight:500;transition:.25s}
 .btn-outline:hover{background:var(--primary-2);color:#000;box-shadow:0 0 30px rgba(203,255,21,.5)}
-.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line-2);border-radius:8px;position:relative}
+.menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line-2);border-radius:8px;position:relative}
 .menu-btn span{position:absolute;left:11px;right:11px;height:2px;background:#fff;transition:.3s}
-.menu-btn span:nth-child(1){top:14px}.menu-btn span:nth-child(2){top:20px}.menu-btn span:nth-child(3){top:26px}
-.menu-open .menu-btn span:nth-child(1){top:20px;transform:rotate(45deg)}
+.menu-btn span:nth-child(1){top:15px}.menu-btn span:nth-child(2){top:21px}.menu-btn span:nth-child(3){top:27px}
+.menu-open .menu-btn span:nth-child(1){top:21px;transform:rotate(45deg)}
 .menu-open .menu-btn span:nth-child(2){opacity:0}
-.menu-open .menu-btn span:nth-child(3){top:20px;transform:rotate(-45deg)}
+.menu-open .menu-btn span:nth-child(3){top:21px;transform:rotate(-45deg)}
 
 /* ---------- BUTTONS ---------- */
 .btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:6px;font-weight:600;font-size:14px;letter-spacing:.6px;text-transform:uppercase;transition:transform .25s,box-shadow .25s;overflow:hidden;isolation:isolate}
@@ -124,9 +113,10 @@ header.scrolled{background:rgba(var(--bg-rgb),.94);backdrop-filter:blur(14px);-w
 @keyframes blink{50%{opacity:0}}
 .hero p.lead{margin-top:24px;font-size:17px;color:var(--muted);max-width:540px}
 .hero-ctas{display:flex;gap:18px;align-items:center;margin-top:36px;flex-wrap:wrap}
-.hero-proof{display:flex;gap:26px;margin-top:44px;flex-wrap:wrap}
-.hero-proof div{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
-.hero-proof svg{color:var(--primary)}
+.hero-proof{list-style:none;display:flex;gap:10px;margin-top:34px;flex-wrap:wrap}
+.hero-proof li{font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;border:1px solid var(--line-2);border-radius:100px;background:rgba(var(--bg-rgb),.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hero-proof li b{color:#fff;font-weight:700}
+.hero-proof svg{color:var(--primary);flex-shrink:0}
 
 /* foto hero */
 .hero{overflow:hidden}
@@ -135,55 +125,24 @@ header.scrolled{background:rgba(var(--bg-rgb),.94);backdrop-filter:blur(14px);-w
 .hero-photo{position:absolute;top:0;right:0;bottom:0;width:min(68%,1200px);z-index:1;pointer-events:none;
   -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%),linear-gradient(180deg,#000 75%,transparent 100%);
   -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0%,#000 30%),linear-gradient(180deg,#000 75%,transparent 100%);mask-composite:intersect}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:68% center;transform:scale(1.04);transition:transform .6s ease-out;animation:photoIn 1.4s cubic-bezier(.2,.7,.2,1) backwards}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:88% center;transform:scale(1.04);transition:transform .6s ease-out;animation:photoIn 1.4s cubic-bezier(.2,.7,.2,1) backwards}
 .hero-photo::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(203,255,21,.28),transparent 55%);mix-blend-mode:screen}
 .hero-photo::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(var(--bg-rgb),.85) 0%,rgba(var(--bg-rgb),.55) 22%,transparent 42%)}
 @keyframes photoIn{from{opacity:0;transform:scale(1.12)}to{opacity:1;transform:scale(1.04)}}
-body.loading .hero-photo img{animation-play-state:paused}
-
-/* editor 3D */
-.stage{position:relative;perspective:1400px}
-.editor{position:relative;border-radius:14px;background:rgba(var(--card-rgb),.85);border:1px solid var(--line-2);box-shadow:0 40px 100px -30px rgba(203,255,21,.55),0 0 0 1px rgba(203,255,21,.15) inset;transform:rotateY(-12deg) rotateX(6deg);transform-style:preserve-3d;transition:transform .2s ease-out;backdrop-filter:blur(10px)}
-.editor-top{display:flex;align-items:center;gap:8px;padding:14px 16px;border-bottom:1px solid var(--line)}
-.editor-top i{width:11px;height:11px;border-radius:50%;background:#ff5f57}
-.editor-top i:nth-child(2){background:#febc2e}.editor-top i:nth-child(3){background:#28c840}
-.editor-top .tab{margin-left:14px;font-family:var(--mono);font-size:12px;color:var(--text);padding:4px 12px;background:rgba(255,255,255,.05);border-radius:6px;border-top:2px solid var(--primary)}
-.editor-top .tab.off{background:none;border-color:transparent;color:var(--muted);margin-left:0}
-.code{font-family:var(--mono);font-size:13.5px;line-height:1.75;padding:20px 22px 26px;min-height:250px;white-space:pre;overflow:hidden;color:#cdd3e8;counter-reset:ln}
-.code .l{display:block}
-.code .l::before{counter-increment:ln;content:counter(ln);display:inline-block;width:26px;color:rgba(255,255,255,.2);margin-right:12px;text-align:right}
-.tk-k{color:#c792ea}.tk-f{color:#82aaff}.tk-s{color:#c3e88d}.tk-n{color:#f78c6c}.tk-c{color:#5c6485;font-style:italic}.tk-p{color:#89ddff}
-.cursor-type{display:inline-block;width:8px;height:17px;background:var(--primary);vertical-align:-3px;animation:blink 1s steps(1) infinite}
-.float-card{position:absolute;border-radius:12px;background:rgba(var(--card-rgb),.9);border:1px solid var(--line-2);backdrop-filter:blur(12px);padding:14px 16px;box-shadow:0 20px 50px -15px rgba(0,0,0,.7);font-size:12px;animation:float 6s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-12px)}}
-.fc-ads{left:-40px;bottom:-34px;width:250px;animation-delay:-2s}
-.fc-ads .ad{font-size:10px;font-weight:700;color:#000;background:#fbbc04;border-radius:3px;padding:1px 5px;margin-right:6px}
-.fc-ads .url{color:#9aa0a6;font-size:11px}
-.fc-ads h5{color:#8ab4f8;font-size:14px;font-weight:600;margin:4px 0 2px}
-.fc-ads p{color:var(--muted);font-size:11px;line-height:1.4}
-.fc-score{right:-26px;top:-30px;display:flex;align-items:center;gap:12px}
-.ring{--p:0;width:52px;height:52px;border-radius:50%;background:conic-gradient(#34d399 calc(var(--p)*1%),rgba(255,255,255,.08) 0);display:grid;place-items:center;position:relative}
-.ring::before{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--card)}
-.ring span{position:relative;font-weight:800;color:#34d399;font-size:15px}
-.fc-score small{display:block;color:var(--muted)}
-.fc-score strong{font-size:13px}
-.fc-wa{left:-34px;bottom:-26px;display:flex;align-items:center;gap:10px;animation-delay:-4s}
-.fc-wa .ic{width:34px;height:34px;border-radius:50%;background:#25d366;display:grid;place-items:center}
-.fc-wa strong{display:block;font-size:12.5px}
-.fc-wa small{color:var(--muted)}
 
 /* ---------- SECTIONS ---------- */
 section{position:relative;padding:120px 0}
 .sec-head{text-align:center;max-width:720px;margin:0 auto 64px}
 .sec-head h3{font-size:14px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--primary);margin-bottom:16px}
+.sec-head h2,.about-text h2,.cta-box h2{text-wrap:balance}
 .sec-head h2{font-size:clamp(28px,3.8vw,46px);line-height:1.15;font-weight:800;letter-spacing:-1px}
 .sec-head h2 em{font-style:normal;color:rgba(160,160,160,.75)}
-.sec-head p{color:var(--muted);margin-top:18px;font-size:16px}
+.sec-head p{text-wrap:pretty;color:var(--muted);margin-top:18px;font-size:16px}
 .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* reveal */
-.rv{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.in{opacity:1;transform:none}
+.rv{transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.anima .rv:not(.in){opacity:0;transform:translateY(40px)}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
 
 /* ---------- SERVICES (lista interativa) ---------- */
@@ -368,7 +327,8 @@ section{position:relative;padding:120px 0}
 /* ---------- FOOTER ---------- */
 footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,0,.4)}
 .foot-grid{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.foot-links{display:flex;gap:22px;font-size:14px;color:var(--muted)}
+.foot-links{display:flex;gap:10px 22px;font-size:14px;color:var(--muted)}
+.foot-links a{display:inline-flex;align-items:center;min-height:44px}
 .foot-links a:hover{color:#fff}
 .copy{margin-top:30px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .copy code{font-family:var(--mono);color:var(--primary)}
@@ -393,8 +353,6 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
   .hero-photo img{object-position:center}
   .hero-photo::before{display:none}
   .hero .container{margin-top:-60px}
-  .editor{transform:none}
-  .fc-wa{left:-6px}
   .svc{grid-template-columns:1fr}
   .svc-right{display:none}
   .why{grid-template-columns:1fr 1fr}
@@ -412,10 +370,8 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
   .svc-ar{width:32px;height:32px}
   .card{padding:26px}
   .works,.why{grid-template-columns:1fr}
-  .code{font-size:11.5px;min-height:210px;padding:16px 12px}
-  .code .l::before{width:18px;margin-right:8px}
-  .fc-ads{width:210px;bottom:-50px}
-  .hero-proof{gap:14px}
+  .hero-proof{gap:8px;margin-top:28px}
+  .hero-proof li{font-size:12.5px;padding:7px 12px 7px 9px}
   .cta-box{padding:64px 20px}
   .copy{flex-direction:column}
 }
@@ -472,7 +428,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
 
 /* ajustes do celular */
 @media (max-width:640px){
-  .foot-links{flex-wrap:wrap;gap:12px 22px}
+  .foot-links{flex-wrap:wrap;gap:0 22px}
   .hero h1{font-size:min(7.6vw,32px);letter-spacing:-1px}
   .sec-light .svc-head{padding-left:16px;padding-right:12px}
   .sec-light .svc-body>div{padding-left:52px;padding-right:16px}
@@ -484,24 +440,20 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
   .about-stats div{padding:14px}
   .about-stats span{font-size:12px}
 }
+@media (max-width:640px){
+  .why{gap:10px}
+  .why .card{padding:18px 20px}
+  .why .card h4{font-size:16px;margin-bottom:6px}
+  .why .card p{font-size:14px;line-height:1.5}
+  .why .card:hover{transform:none}
+}
 @media (max-width:360px){.btn-xl{padding:16px 18px;font-size:13px;gap:8px}}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","url":"https://www.carlosandredev.com.br/","image":"https://www.carlosandredev.com.br/assets/og-capa2.jpg","name":"Carlos André | Desenvolvedor Web","description":"Criação de sites, landing pages, sistemas sob medida, tráfego pago no Google e Instagram e automações.","telephone":"+55 38 99258-4237","areaServed":"BR","founder":{"@type":"Person","name":"Carlos André","jobTitle":"Desenvolvedor Web"},"knowsAbout":["Desenvolvimento de sites","Landing pages","Google Ads","Sistemas web","Automação"]}
+{"@context":"https://schema.org","@type":"ProfessionalService","url":"https://www.carlosandredev.com.br/","image":"https://www.carlosandredev.com.br/assets/og-capa2.jpg","name":"Carlos André | Desenvolvedor Web","description":"Criação de sites, landing pages, sistemas sob medida, tráfego pago no Google e Instagram e automações.","telephone":"+55 38 99258-4237","email":"contato.carlosandrebarbosa@gmail.com","areaServed":"BR","founder":{"@type":"Person","name":"Carlos André","jobTitle":"Desenvolvedor Web"},"knowsAbout":["Desenvolvimento de sites","Landing pages","Google Ads","Sistemas web","Automação"]}
 </script>
 </head>
-<body class="loading">
-
-<!-- PRELOADER -->
-<div id="loader" aria-hidden="true">
-  <div class="loader-box">
-    <div class="logo" style="margin-bottom:22px"><svg class="logo-icon" viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 10L3 20l8 10M37 10l8 10-8 10M28 3L20 37"/></svg><div class="logo-text"><strong>Carlos <span>André</span></strong><small>DESENVOLVEDOR WEB<i></i></small></div></div>
-    <div class="ln" id="l1"></div>
-    <div class="ln" id="l2"></div>
-    <div class="ln" id="l3"></div>
-    <div class="loader-bar"><i id="lbar"></i></div>
-  </div>
-</div>
+<body>
 
 <div class="glow-cursor" id="glow"></div>
 
@@ -512,9 +464,9 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
       <svg class="logo-icon" viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 10L3 20l8 10M37 10l8 10-8 10M28 3L20 37"/></svg><div class="logo-text"><strong>Carlos <span>André</span></strong><small>DESENVOLVEDOR WEB<i></i></small></div>
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#servicos">Serviços</a>
-      <a href="#sobre">Sobre mim</a>
       <a href="#portfolio">Portfólio</a>
+      <a href="#sobre">Sobre mim</a>
+      <a href="#servicos">Serviços</a>
       <a href="#faq">Dúvidas</a>
     </nav>
     <a href="#" class="btn-outline" data-wa="Olá Carlos! Vim pelo seu site e quero conversar sobre um projeto.">
@@ -531,7 +483,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
 <section class="hero">
   <div class="grid-bg"></div>
   <div class="hero-photo" id="heroPhoto">
-    <img src="assets/carlos.jpg" alt="Carlos André, desenvolvedor web, trabalhando no notebook" fetchpriority="high">
+    <img src="assets/carlos-topo.webp" srcset="assets/carlos-topo-1200.webp 1200w, assets/carlos-topo.webp 2400w" sizes="(max-width:980px) 100vw, 68vw" width="2400" height="1340" alt="Carlos André, desenvolvedor web, trabalhando no notebook" fetchpriority="high">
   </div>
   <div class="container hero-grid">
     <div>
@@ -544,9 +496,70 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
       <div class="hero-ctas rv d2">
         <a href="#" class="btn btn-primary" data-wa="Olá Carlos! Quero tirar meu projeto do papel.">Quero meu projeto
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        <a href="#servicos" class="btn btn-ghost">Ver o que eu faço
+        <a href="#portfolio" class="btn btn-ghost">Ver projetos
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></a>
       </div>
+      <ul class="hero-proof rv d3">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>4+ anos</b> com internet</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Formado em <b>ADS</b></span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Você fala <b>direto comigo</b></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section id="portfolio" class="sec-light">
+  <div class="container">
+    <div class="sec-head rv">
+      <h3>Portfólio</h3>
+      <h2>Projetos reais <em>para negócios reais.</em></h2>
+      <p>Cada projeto é pensado para o público e o objetivo do cliente.</p>
+    </div>
+    <div class="works">
+      <article class="work w-img rv tilt">
+        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-maryane.mp4" poster="assets/portfolio-1.jpg" muted loop playsinline preload="none" aria-label="Site da Maryane Cavalcanti, neuropsicóloga"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
+        <div class="work-info"><span class="cat">Site Institucional</span><h4>Maryane Cavalcanti</h4><p>Site para neuropsicóloga e terapeuta cognitivo-comportamental, com áreas de atuação e contato.</p></div>
+      </article>
+      <article class="work w-img rv d1 tilt">
+        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-mariosouza.mp4" poster="assets/port-mariosouza.webp" muted loop playsinline preload="none" aria-label="Site do escritório Mario Souza Advogados"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
+        <div class="work-info"><span class="cat">Site Institucional</span><h4>Mario Souza Advogados</h4><p>Site para escritório de advocacia empresarial, com vídeo de fundo, área do cliente e contato direto.</p></div>
+      </article>
+      <article class="work w-img rv tilt">
+        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-vivence.mp4" poster="assets/port-vivence.webp" muted loop playsinline preload="none" aria-label="Loja virtual da Vivence Jóias"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
+        <div class="work-info"><span class="cat">Loja Virtual</span><h4>Vivence Jóias</h4><p>E-commerce de joias em prata 925 e ouro 18K, com coleções, carrinho e atendimento pelo WhatsApp.</p></div>
+      </article>
+      <article class="work w-img rv d1 tilt">
+        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-logi.mp4" poster="assets/port-logi.webp" muted loop playsinline preload="none" aria-label="Landing page do teclado MX Keys S"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
+        <div class="work-info"><span class="cat">Landing de Produto</span><h4>MX Keys S</h4><p>Landing page de produto com visual limpo, foco no item e chamada direta para compra.</p></div>
+      </article>
+      <article class="work w-img rv tilt">
+        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-sabordeminas.mp4" poster="assets/port-sabordeminas.webp" muted loop playsinline preload="none" aria-label="Landing page da Fábrica Sabor de Minas"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
+        <div class="work-info"><span class="cat">Landing Page de Revenda</span><h4>Sabor de Minas</h4><p>Landing page para a fábrica de biscoitos captar revendedores, com sabores em destaque e contato direto pelo WhatsApp.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM SOU EU -->
+<section id="sobre">
+  <div class="container about">
+    <div class="about-photo rv">
+      <div class="about-frame"><img src="assets/carlos-sobre.jpg" alt="Carlos André, desenvolvedor web" loading="lazy"></div>
+    </div>
+    <div class="about-text">
+      <h3 class="eyebrow-s rv">Quem sou eu</h3>
+      <h2 class="rv d1">Prazer, eu sou o<br><span class="grad-text" style="white-space:nowrap">Carlos André.</span></h2>
+      <p class="rv d2">Tenho 21 anos e sempre fui apaixonado por tecnologia. Comecei a trabalhar com internet aos 17 e, de lá pra cá, nunca mais parei. Hoje sou formado em <strong>Análise e Desenvolvimento de Sistemas</strong>.</p>
+      <p class="rv d2">Uso essa experiência para ajudar negócios a aparecerem na internet e receberem mais clientes pelo WhatsApp. Eu crio o site, cuido dos anúncios no Google e no Instagram e desenvolvo os sistemas que o seu negócio precisar.</p>
+      <div class="about-stats rv d3"><div><b>4+</b><span>anos trabalhando<br>com internet</span></div><div><b>ADS</b><span>formado em Análise e<br>Desenv. de Sistemas</span></div></div>
+      <ul class="about-list rv d3">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Você fala direto comigo, do começo ao fim</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Cada projeto feito do zero, sem template pronto</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Site, anúncios e sistema no mesmo lugar</li>
+      </ul>
+      <a href="#" class="btn btn-primary rv d4" data-wa="Oi Carlos! Vi seu site e queria conversar com você.">Falar comigo
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
     </div>
   </div>
 </section>
@@ -628,62 +641,6 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
   </div>
 </section>
 
-<!-- QUEM SOU EU -->
-<section id="sobre">
-  <div class="container about">
-    <div class="about-photo rv">
-      <div class="about-frame"><img src="assets/carlos-sobre.jpg" alt="Carlos André, desenvolvedor web" loading="lazy"></div>
-    </div>
-    <div class="about-text">
-      <h3 class="eyebrow-s rv">Quem sou eu</h3>
-      <h2 class="rv d1">Prazer, eu sou o<br><span class="grad-text" style="white-space:nowrap">Carlos André.</span></h2>
-      <p class="rv d2">Tenho 21 anos e sempre fui apaixonado por tecnologia. Comecei a trabalhar com internet aos 17 e, de lá pra cá, nunca mais parei. Hoje sou formado em <strong>Análise e Desenvolvimento de Sistemas</strong>.</p>
-      <p class="rv d2">Uso essa experiência para ajudar negócios a aparecerem na internet e receberem mais clientes pelo WhatsApp. Eu crio o site, cuido dos anúncios no Google e no Instagram e desenvolvo os sistemas que o seu negócio precisar.</p>
-      <div class="about-stats rv d3"><div><b>4+</b><span>anos trabalhando<br>com internet</span></div><div><b>ADS</b><span>formado em Análise e<br>Desenv. de Sistemas</span></div></div>
-      <ul class="about-list rv d3">
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Você fala direto comigo, do começo ao fim</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Cada projeto feito do zero, sem template pronto</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Site, anúncios e sistema no mesmo lugar</li>
-      </ul>
-      <a href="#" class="btn btn-primary rv d4" data-wa="Oi Carlos! Vi seu site e queria conversar com você.">Falar comigo
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFÓLIO -->
-<section id="portfolio" class="sec-light">
-  <div class="container">
-    <div class="sec-head rv">
-      <h3>Portfólio</h3>
-      <h2>Projetos reais <em>para negócios reais.</em></h2>
-      <p>Cada projeto é pensado para o público e o objetivo do cliente.</p>
-    </div>
-    <div class="works">
-      <article class="work w-img rv tilt">
-        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-maryane.mp4" poster="assets/portfolio-1.jpg" muted loop playsinline preload="none" aria-label="Site da Maryane Cavalcanti, neuropsicóloga"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
-        <div class="work-info"><span class="cat">Site Institucional</span><h4>Maryane Cavalcanti</h4><p>Site para neuropsicóloga e terapeuta cognitivo-comportamental, com áreas de atuação e contato.</p></div>
-      </article>
-      <article class="work w-img rv d1 tilt">
-        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-mariosouza.mp4" poster="assets/port-mariosouza.webp" muted loop playsinline preload="none" aria-label="Site do escritório Mario Souza Advogados"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
-        <div class="work-info"><span class="cat">Site Institucional</span><h4>Mario Souza Advogados</h4><p>Site para escritório de advocacia empresarial, com vídeo de fundo, área do cliente e contato direto.</p></div>
-      </article>
-      <article class="work w-img rv tilt">
-        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-vivence.mp4" poster="assets/port-vivence.webp" muted loop playsinline preload="none" aria-label="Loja virtual da Vivence Jóias"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
-        <div class="work-info"><span class="cat">Loja Virtual</span><h4>Vivence Jóias</h4><p>E-commerce de joias em prata 925 e ouro 18K, com coleções, carrinho e atendimento pelo WhatsApp.</p></div>
-      </article>
-      <article class="work w-img rv d1 tilt">
-        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-logi.mp4" poster="assets/port-logi.webp" muted loop playsinline preload="none" aria-label="Landing page do teclado MX Keys S"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
-        <div class="work-info"><span class="cat">Landing de Produto</span><h4>MX Keys S</h4><p>Landing page de produto com visual limpo, foco no item e chamada direta para compra.</p></div>
-      </article>
-      <article class="work w-img rv tilt">
-        <div class="work-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><video class="work-vid" src="assets/vid-sabordeminas.mp4" poster="assets/port-sabordeminas.webp" muted loop playsinline preload="none" aria-label="Landing page da Fábrica Sabor de Minas"></video><span class="vid-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Passe o mouse</span></div></div>
-        <div class="work-info"><span class="cat">Landing Page de Revenda</span><h4>Sabor de Minas</h4><p>Landing page para a fábrica de biscoitos captar revendedores, com sabores em destaque e contato direto pelo WhatsApp.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- DIFERENCIAIS -->
 <section class="sec-why">
   <div class="container">
@@ -741,8 +698,9 @@ footer{border-top:1px solid var(--line);padding:50px 0 34px;background:rgba(0,0,
     <div class="foot-grid">
       <div class="logo"><svg class="logo-icon" viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 10L3 20l8 10M37 10l8 10-8 10M28 3L20 37"/></svg><div class="logo-text"><strong>Carlos <span>André</span></strong><small>DESENVOLVEDOR WEB<i></i></small></div></div>
       <nav class="foot-links">
-        <a href="#servicos">Serviços</a><a href="#portfolio">Portfólio</a><a href="#faq">Dúvidas</a>
+        <a href="#portfolio">Portfólio</a><a href="#servicos">Serviços</a><a href="#faq">Dúvidas</a>
         <a href="#" data-wa="Olá Carlos!">WhatsApp</a>
+        <a href="mailto:contato.carlosandrebarbosa@gmail.com">contato.carlosandrebarbosa@gmail.com</a>
       </nav>
     </div>
     <div class="copy">
@@ -768,27 +726,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isTouch = matchMedia('(hover: none)').matches;
 
-/* ================== PRELOADER ================== */
-(function(){
-  const lines = [
-    ['l1','<span class="pr">$</span> npm run carlos-andre'],
-    ['l2','> compilando ideias… <span class="ok">✓</span>'],
-    ['l3','> pronto para vender <span class="ok">✓</span>'],
-  ];
-  const bar = document.getElementById('lbar');
-  let i = 0;
-  const finish = () => { bar.style.width='100%'; setTimeout(()=>{document.getElementById('loader').classList.add('done');document.body.classList.remove('loading');startHero();},250); };
-  if (reduce) return finish();
-  const next = () => {
-    if (i >= lines.length) return setTimeout(finish, 200);
-    const [id, html] = lines[i++];
-    document.getElementById(id).innerHTML = html;
-    bar.style.width = (i/lines.length*85)+'%';
-    setTimeout(next, 330);
-  };
-  setTimeout(next, 150);
-})();
-
 /* ================== HEADER / MENU ================== */
 const header = document.getElementById('header');
 addEventListener('scroll', ()=> header.classList.toggle('scrolled', scrollY > 40), {passive:true});
@@ -810,48 +747,6 @@ document.querySelectorAll('#navLinks a').forEach(a=>a.onclick=()=>header.classLi
   setTimeout(tick, 2600);
 })();
 
-/* ================== CODE TYPING ================== */
-const codeLines = [
-  '<span class="tk-k">const</span> <span class="tk-p">negocio</span> = {',
-  '  site: <span class="tk-s">"rápido e bonito"</span>,',
-  '  anuncios: [<span class="tk-s">"Google"</span>, <span class="tk-s">"Instagram"</span>],',
-  '  whatsapp: <span class="tk-n">true</span>,',
-  '};',
-  '',
-  '<span class="tk-f">crescer</span>(negocio); <span class="tk-c">// 🚀 mais clientes</span>',
-];
-function typeCode(){
-  const box = document.getElementById('code');
-  if (!box) return;
-  if (reduce){ box.innerHTML = codeLines.map(l=>`<span class="l">${l}</span>`).join(''); return; }
-  let li = 0;
-  const cursor = '<span class="cursor-type"></span>';
-  function line(){
-    if (li >= codeLines.length){ box.lastChild.insertAdjacentHTML('beforeend',cursor); return; }
-    const html = codeLines[li];
-    // separa em tokens (tags inteiras ou caracteres) para digitar sem quebrar o HTML
-    const parts = html.match(/<[^>]+>|&[a-z]+;|[\s\S]/gu) || [];
-    const span = document.createElement('span'); span.className='l'; box.appendChild(span);
-    let pi = 0, buf = '';
-    (function ch(){
-      while (pi < parts.length && parts[pi].startsWith('<')) buf += parts[pi++];
-      if (pi < parts.length) buf += parts[pi++];
-      span.innerHTML = buf + cursor;
-      if (pi < parts.length) setTimeout(ch, 14 + Math.random()*22);
-      else { span.innerHTML = buf; li++; setTimeout(line, html ? 90 : 40); }
-    })();
-  }
-  line();
-}
-function countRing(){
-  const ring = document.getElementById('ring'), num = document.getElementById('ringNum');
-  let p = 0; const target = 100;
-  const t = setInterval(()=>{ p += 2; ring.style.setProperty('--p',p); num.textContent=p; if(p>=target) clearInterval(t); }, 22);
-}
-let heroStarted=false;
-function startHero(){ if(heroStarted) return; heroStarted=true; typeCode(); }
-setTimeout(startHero, 4000); // fallback
-
 /* ================== FOTO HERO PARALLAX ================== */
 if (!isTouch && !reduce){
   const ph = document.querySelector('#heroPhoto img');
@@ -863,6 +758,11 @@ if (!isTouch && !reduce){
 }
 
 /* ================== REVEAL ================== */
+/* a página nasce visível: só esconde para animar se o navegador consegue revelar */
+if ('IntersectionObserver' in window && !reduce) document.documentElement.classList.add('anima');
+const revelaVisiveis = () => document.querySelectorAll('.rv:not(.in)').forEach(el=>{ if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in'); });
+setTimeout(revelaVisiveis, 2500); setTimeout(revelaVisiveis, 5000);
+document.addEventListener('visibilitychange', ()=>{ if (!document.hidden) revelaVisiveis(); });
 const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.15, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
